@@ -1,24 +1,3 @@
-/**
- * Module: Config Loader
- *
- * This module provides a utility function `Config` for reading and retrieving configuration values
- * from a `config.json` file located in the current working directory. The function reads the JSON
- * file, parses it, and returns the value corresponding to a specified key.
- * 
- * @example
- * ```typescript
- * import { Config } from '@blitz-bots/config';
- * const apiKey = Config('API_KEY');
- * console.log(apiKey); // Outputs the value of 'API_KEY' in config.json, if defined.
- * ``` 
- * 
- * Errors:
- * If the `config.json` file does not exist or cannot be read, the function will log an error message
- * to the console and return `undefined`.
- * 
- * @module ConfigLoader
- */
-
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
