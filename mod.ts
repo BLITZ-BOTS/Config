@@ -7,10 +7,10 @@
  * 
  * @example
  * ```typescript
- * import Config from './path/to/Config';
+ * import { Config } from '@blitz-bots/config';
  * const apiKey = Config('API_KEY');
  * console.log(apiKey); // Outputs the value of 'API_KEY' in config.json, if defined.
- * ```
+ * ``` 
  * 
  * Errors:
  * If the `config.json` file does not exist or cannot be read, the function will log an error message
@@ -21,6 +21,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import process from 'node:process';
 
 /**
  * Retrieves a configuration value by key from a `config.json` file located in the current
@@ -30,9 +31,9 @@ import path from 'node:path';
  * @returns {string | number | boolean | object | undefined} - The value associated with the key,
  * or `undefined` if the key is not found or an error occurs.
  */
-export default function Config(key: string): string | number | boolean | object | undefined {
+export function Config(key: string): string | number | boolean | object | undefined {
     try {
-        const configPath = path.join(Deno.cwd(), 'config.json');
+        const configPath = path.join(process.cwd(), 'config.json');
         const configData = fs.readFileSync(configPath, 'utf-8');
         
         const config = JSON.parse(configData);
